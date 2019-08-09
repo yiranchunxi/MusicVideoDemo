@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="redTab">#F44336</color>
+    <color name="nightColor">#212121</color>
+
+    <color name="grey_700_96p">#F5616161</color>
+    <color name="grey_900_96p">#F5212121</color>
+
+
+    <!--背景 纯白色-->
+    <color name="colorWhite">#ffffff</color>
+
+    <!--背景 item的5.0一下版本选择器颜色-->
+    <color name="colorWhiteBg">#d9d9d9</color>
+
+    <color name="divider_list">#d4d4d4</color>
+
+    <color name="colorf5f5f5">#f5f5f5</color>
+
+    <color name="colorebebeb">#ebebeb</color>
+
+    <color name="color666666">#666666</color>
+
+    <color name="colorde6500">#de6500</color>
+
+    <color name="color333333">#333333</color>
+
+    <color name="color808080">#808080</color>
+
+    <color name="colorada095">#ada095</color>
+
+    <color name="alpha_20_black">#33000000</color>
+
+    <color name="redTab_30p">#4CF44336</color>
+
+    <color name="alpha_10_black">#1A000000</color>
+</resources>
