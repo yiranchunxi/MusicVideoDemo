@@ -13,6 +13,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.Log;
 
 
@@ -511,6 +512,14 @@ public class PlayService extends Service {
 
         mPlayingPosition = position;
         AudioBean music = audioMusics.get(mPlayingPosition);
+
+        if(TextUtils.isEmpty(music.getPath())){
+            if (mListener != null) {
+                mListener.onPlayPathNull(position);
+            }
+            return;
+        }
+
         String id = music.getId();
         Log.e("PlayService","PlayService"+"----id----"+ id);
         //保存当前播放的musicId，下次进来可以记录状态
@@ -767,7 +776,9 @@ public class PlayService extends Service {
         }
     }
 
-
+    public void updateMusicList() {
+        audioMusics = BaseAppHelper.get().getMusicList();
+    }
 
     /**
      * 扫描音乐

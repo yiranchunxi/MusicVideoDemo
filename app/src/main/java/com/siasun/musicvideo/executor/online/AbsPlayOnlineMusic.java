@@ -7,6 +7,7 @@ import com.liulishuo.filedownloader.BaseDownloadTask;
 import com.liulishuo.filedownloader.FileDownloadListener;
 import com.liulishuo.filedownloader.FileDownloader;
 import com.siasun.musicvideo.api.http.OnLineMusicModel;
+import com.siasun.musicvideo.app.BaseAppHelper;
 import com.siasun.musicvideo.model.bean.AudioBean;
 import com.siasun.musicvideo.model.bean.DownloadInfo;
 import com.siasun.musicvideo.model.bean.OnlineMusicList;
@@ -22,15 +23,13 @@ import io.reactivex.schedulers.Schedulers;
 public  abstract  class AbsPlayOnlineMusic extends AbsPlayMusic{
 
 
-    private OnlineMusicList.SongListBean mOnlineMusic;
-    private Activity mActivity;
-    private AudioBean music;
 
-    public AbsPlayOnlineMusic(Activity activity, OnlineMusicList.SongListBean onlineMusic) {
+    private Activity mActivity;
+    private int position;
+    public AbsPlayOnlineMusic(Activity activity,int position) {
         super(activity);
         this.mActivity = activity;
-        mOnlineMusic = onlineMusic;
-
+        this.position=position;
     }
     @Override
     public void onPrepare() {
@@ -41,14 +40,14 @@ public  abstract  class AbsPlayOnlineMusic extends AbsPlayMusic{
 
     @Override
     void getPlayInfo() {
-        String artist = mOnlineMusic.getArtist_name();
+      /*  String artist = mOnlineMusic.getArtist_name();
         String title = mOnlineMusic.getTitle();
 
         music = new AudioBean();
         music.setType(AudioBean.Type.ONLINE);
         music.setTitle(title);
         music.setArtist(artist);
-        music.setAlbum(mOnlineMusic.getAlbum_title());
+        music.setAlbum(mOnlineMusic.getAlbum_title());*/
 
         // 下载歌词
         /*String lrcFileName = FileMusicUtils.getLrcFileName(artist, title);
@@ -72,12 +71,12 @@ public  abstract  class AbsPlayOnlineMusic extends AbsPlayMusic{
         music.setCoverPath(albumFile.getPath());*/
 
         // 获取歌曲播放链接
-        getMusicInfo(mOnlineMusic.getSong_id());
+        getMusicInfo();
     }
 
-    private void getMusicInfo(String songId) {
+    private void getMusicInfo() {
         OnLineMusicModel model = OnLineMusicModel.getInstance();
-        model.getMusicDownloadInfo(OnLineMusicModel.METHOD_DOWNLOAD_MUSIC,songId)
+        model.getMusicDownloadInfo(OnLineMusicModel.METHOD_DOWNLOAD_MUSIC,BaseAppHelper.get().getMusicList().get(position).getSongId())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<DownloadInfo>() {
@@ -87,9 +86,12 @@ public  abstract  class AbsPlayOnlineMusic extends AbsPlayMusic{
                             onExecuteFail(null);
                             return;
                         }
-                        music.setPath(downloadInfo.getBitrate().getFile_link());
-                        music.setDuration(downloadInfo.getBitrate().getFile_duration() * 1000);
-                        checkCounter(music);
+
+                        BaseAppHelper.get().getMusicList().get(position).setPath(downloadInfo.getBitrate().getFile_link());
+                        BaseAppHelper.get().getMusicList().get(position).setDuration(downloadInfo.getBitrate().getFile_duration() * 1000);
+                        //music.setPath(downloadInfo.getBitrate().getFile_link());
+                        //music.setDuration(downloadInfo.getBitrate().getFile_duration() * 1000);
+                        checkCounter();
                     }
                 }, new Consumer<Throwable>() {
                     @Override

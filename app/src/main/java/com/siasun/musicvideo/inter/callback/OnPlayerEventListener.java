@@ -43,4 +43,7 @@ public interface OnPlayerEventListener {
      */
     void onTimer(long remain);
 
+
+    void onPlayPathNull(int position);
+
 }

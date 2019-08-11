@@ -111,7 +111,7 @@
                 android:id="@+id/iv_play_pause"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
-                android:src="@mipmap/icon_play"
+                android:src="@drawable/play_btn_play_pause_selector"
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="14dp"/>

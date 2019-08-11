@@ -36,6 +36,7 @@ public class AudioBean implements Serializable {
     // 文件大小
     private long fileSize;
 
+    private String songId;
     public enum Type {
         LOCAL,
         ONLINE
@@ -127,6 +128,14 @@ public class AudioBean implements Serializable {
 
     public void setFileSize(long fileSize) {
         this.fileSize = fileSize;
+    }
+
+    public String getSongId() {
+        return songId;
+    }
+
+    public void setSongId(String songId) {
+        this.songId = songId;
     }
 
     /**

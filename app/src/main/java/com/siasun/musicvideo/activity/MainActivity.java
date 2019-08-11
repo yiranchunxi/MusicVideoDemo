@@ -30,6 +30,7 @@ import com.siasun.musicvideo.model.bean.AudioBean;
 import com.siasun.musicvideo.model.bean.OnlineMusicList;
 import com.siasun.musicvideo.service.PlayService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -98,25 +99,54 @@ public class MainActivity extends BaseActivity implements View.OnClickListener ,
             public void onItemClick(View view, int position) {
                 if( mAdapter.getDatas().size()>position && position>-1){
                     OnlineMusicList.SongListBean onlineMusic = mAdapter.getDatas().get(position);
-                    playMusic(onlineMusic);
+                    //准备播放列表
+                    prepareMusicList(mAdapter.getDatas());
+
+
+                    playMusic(onlineMusic,position);
                 }
             }
         });
     }
 
-    private void playMusic(OnlineMusicList.SongListBean onlineMusic) {
+    private void prepareMusicList(List<OnlineMusicList.SongListBean> datas) {
 
-        new AbsPlayOnlineMusic(this, onlineMusic) {
+        List<AudioBean> list=new ArrayList<>();
+
+
+        for(int i=0;i<datas.size();i++){
+
+            AudioBean music=new AudioBean();
+            String artist = datas.get(i).getArtist_name();
+            String title = datas.get(i).getTitle();
+            music.setId(datas.get(i).getSong_id());
+            music.setType(AudioBean.Type.ONLINE);
+            music.setTitle(title);
+            music.setArtist(artist);
+            music.setAlbum(datas.get(i).getAlbum_title());
+            music.setSongId(datas.get(i).getSong_id());
+            list.add(music);
+
+        }
+
+
+         BaseAppHelper.get().setMusicList(list);
+         getPlayService().updateMusicList();
+    }
+
+    private void playMusic(final  OnlineMusicList.SongListBean onlineMusic, final int position) {
+
+        new AbsPlayOnlineMusic(this,position) {
             @Override
             public void onPrepare() {
 
             }
 
             @Override
-            public void onExecuteSuccess(AudioBean music) {
-                getPlayService().play(music);
+            public void onExecuteSuccess() {
+                getPlayService().play(position);
                 showPlayingFragment();
-                Toast.makeText(MainActivity.this,"正在播放" + music.getTitle(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,"正在播放" + onlineMusic.getTitle(),Toast.LENGTH_SHORT).show();
             }
 
             @Override

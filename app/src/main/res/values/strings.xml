@@ -10,4 +10,10 @@
     <string name="cancel">取消</string>
 
     <string name="easy_permissions">该APP需要您允许打开电话，拍摄照片，允许使用录音设备，访问设备上的文件的权限</string>
+
+
+    <string name="state_next">下一首</string>
+    <string name="state_prev">上一首</string>
+    <string name="state_start">播放</string>
+    <string name="state_pause">暂停</string>
 </resources>

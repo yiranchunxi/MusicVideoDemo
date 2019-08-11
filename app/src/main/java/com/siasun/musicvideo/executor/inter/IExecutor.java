@@ -5,7 +5,7 @@ public interface IExecutor<T> {
 
     void execute();
     void onPrepare();
-    void onExecuteSuccess(T t);
+    void onExecuteSuccess();
     void onExecuteFail(Exception e);
 
 }

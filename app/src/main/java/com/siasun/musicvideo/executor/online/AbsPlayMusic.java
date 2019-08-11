@@ -55,7 +55,7 @@ public abstract class AbsPlayMusic implements IExecutor<AudioBean> {
      */
     abstract void getPlayInfo();
 
-    void checkCounter(AudioBean music) {
-        onExecuteSuccess(music);
+    void checkCounter() {
+        onExecuteSuccess();
     }
 }
