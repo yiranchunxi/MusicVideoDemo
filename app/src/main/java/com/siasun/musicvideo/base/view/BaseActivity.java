@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.siasun.musicvideo.R;
 import com.siasun.musicvideo.activity.GuideActivity;
+import com.siasun.musicvideo.activity.MainActivity;
 import com.siasun.musicvideo.app.BaseAppHelper;
 import com.siasun.musicvideo.app.callback.AppManager;
 import com.siasun.musicvideo.base.mvp.BasePresenter;
@@ -144,7 +145,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
 
     protected boolean checkServiceAlive() {
         if (BaseAppHelper.get().getPlayService() == null) {
-            startActivity(new Intent(this, GuideActivity.class));
+            startActivity(new Intent(this, MainActivity.class));
             AppManager.getAppManager().finishAllActivity();
             return false;
         }

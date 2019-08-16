@@ -6,6 +6,10 @@ import android.content.res.Configuration;
 import android.support.multidex.MultiDex;
 import android.util.Log;
 
+import com.dueeeke.videoplayer.BuildConfig;
+import com.dueeeke.videoplayer.ijk.IjkPlayerFactory;
+import com.dueeeke.videoplayer.player.VideoViewConfig;
+import com.dueeeke.videoplayer.player.VideoViewManager;
 import com.liulishuo.filedownloader.FileDownloader;
 import com.liulishuo.filedownloader.connection.FileDownloadUrlConnection;
 import com.siasun.musicvideo.app.callback.BaseLifecycleCallback;
@@ -55,6 +59,20 @@ public class BaseApplication extends Application {
 
         initThreadPool();
         InitializeService.start(this);
+
+
+        //播放器配置，注意：此为全局配置，按需开启
+        VideoViewManager.setConfig(VideoViewConfig.newBuilder()
+                .setLogEnabled(BuildConfig.DEBUG)
+                .setPlayerFactory(IjkPlayerFactory.create(this))
+//                .setPlayerFactory(ExoMediaPlayerFactory.create(this))
+//                .setAutoRotate(true)
+//                .setEnableMediaCodec(true)
+//                .setUsingSurfaceView(true)
+//                .setEnableParallelPlay(true)
+//                .setEnableAudioFocus(false)
+//                .setScreenScale(VideoView.SCREEN_SCALE_MATCH_PARENT)
+                .build());
     }
     /**
      * 程序终止的时候执行

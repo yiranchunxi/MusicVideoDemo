@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@drawable/selector_music_bg"
+    android:layout_marginTop="10dp"
+    android:paddingBottom="5dp"
+    >
+    
+    <com.siasun.musicvideo.utils.RoundImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="match_parent"
+        android:scaleType="centerCrop"
+        android:layout_height="125dp" />
+    
+
+    <TextView
+        android:id="@+id/tv_live_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="通车了！沈阳地铁九号线今日开通"
+        android:textColor="@color/color333333"
+        android:textSize="15sp"
+        android:layout_below="@id/iv_cover"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="15dp"
+        />
+
+
+    <ImageView
+        android:id="@+id/iv_liked_count"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:src="@mipmap/icon_liked_count"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="15dp"/>
+
+
+    <TextView
+        android:id="@+id/tv_liked_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_liked_count"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/colorada095"
+        android:layout_marginBottom="7dp"
+        android:layout_marginLeft="3dp"
+        android:textSize="12sp"
+        android:text="333"/>
+
+    <ImageView
+        android:id="@+id/iv_commented_count"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:src="@mipmap/icon_commented_count"
+        android:layout_toRightOf="@+id/tv_liked_count"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="15dp"/>
+
+
+    <TextView
+        android:id="@+id/tv_commented_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_commented_count"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/colorada095"
+        android:layout_marginBottom="7dp"
+        android:layout_marginLeft="3dp"
+        android:textSize="12sp"
+        android:text="1073"/>
+
+
+    <ImageView
+        android:id="@+id/iv_see_count"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:src="@mipmap/icon_see_count"
+        android:layout_toRightOf="@+id/tv_commented_count"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="15dp"/>
+
+
+    <TextView
+        android:id="@+id/tv_see_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_see_count"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/colorada095"
+        android:layout_marginBottom="7dp"
+        android:layout_marginLeft="3dp"
+        android:textSize="12sp"
+        android:text="10333"/>
+
+    <TextView
+        android:id="@+id/tv_lived_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/colorada095"
+        android:textSize="12sp"
+        android:text="2小时前"
+        />
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/icon_live_play"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp"/>
+</RelativeLayout>

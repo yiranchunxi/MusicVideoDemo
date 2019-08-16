@@ -45,6 +45,12 @@
 
         <activity android:name=".activity.MainActivity"/>
 
+        <activity android:name=".activity.LiveActivity"/>
+
+        <activity android:name=".activity.PlayerActivity"
+            android:windowSoftInputMode="adjustResize"/>
+
+
         <service android:name=".service.PlayService" />
 
 

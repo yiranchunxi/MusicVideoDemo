@@ -84,15 +84,23 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="30dp"
                 android:layout_marginTop="10dp"
-                android:text="/00:00"/>
-
+                android:text="00:00"/>
+            <TextView
+                android:id="@+id/tv_time_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="@color/color666666"
+                android:layout_toLeftOf="@+id/tv_total_time"
+                android:layout_alignTop="@id/tv_total_time"
+                android:text="/"/>
             <TextView
                 android:id="@+id/tv_current_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="13sp"
                 android:textColor="@color/colorde6500"
-                android:layout_toLeftOf="@+id/tv_total_time"
+                android:layout_toLeftOf="@+id/tv_time_line"
                 android:layout_alignTop="@id/tv_total_time"
                 android:text="00:00"/>
 
@@ -186,13 +194,18 @@
                     />
             </RelativeLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
+            <com.siasun.musicvideo.utils.ExpandTextView
+                android:id="@+id/tv_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
                 android:layout_marginTop="14dp"
                 android:textColor="@color/color666666"
-                android:text="沈阳连续多日的高温，让人感到暑热难耐，然而在沈阳森林动物园里的大熊猫、黑猩猩、河马、松鼠猴等动物们则在动物园营造的清凉环境下……"/>
+                android:lineSpacingMultiplier="1.2"
+                />
+
+
+
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

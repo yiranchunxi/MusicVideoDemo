@@ -1,6 +1,7 @@
 package com.siasun.musicvideo.fragment;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.media.AudioManager;
 import android.os.Bundle;
 import android.text.format.DateUtils;
@@ -18,6 +19,7 @@ import com.siasun.musicvideo.base.view.BaseFragment;
 import com.siasun.musicvideo.executor.online.AbsPlayOnlineMusic;
 import com.siasun.musicvideo.inter.callback.OnPlayerEventListener;
 import com.siasun.musicvideo.model.bean.AudioBean;
+import com.siasun.musicvideo.utils.ExpandTextView;
 import com.siasun.musicvideo.utils.VideoPlayerUtils;
 
 import java.util.concurrent.TimeUnit;
@@ -53,6 +55,9 @@ public class PlayMusicFragment extends BaseFragment implements View.OnClickListe
     @BindView(R.id.iv_prev)
     ImageView iv_prev;
 
+
+    @BindView(R.id.tv_content)
+    ExpandTextView tv_content;
 
     private static final String TAG = "DetailAudioFragment";
     private int mLastProgress;
@@ -93,6 +98,50 @@ public class PlayMusicFragment extends BaseFragment implements View.OnClickListe
         getFragmentManager();
 
         getChildFragmentManager();
+
+
+
+
+        initExpandTextView();
+
+
+    }
+
+    private void initExpandTextView() {
+
+        tv_content.setMaxLineCount(3);
+        tv_content.setCollapseText("收起");
+        tv_content.setExpandText("展开全文");
+        tv_content.setCollapseEnable(true);
+        tv_content.setUnderlineEnable(false);
+        tv_content.setCollapseTextColor(Color.parseColor("#de6500"));
+        tv_content.setExpandTextColor(Color.parseColor("#de6500"));
+        tv_content.setText("沈阳连续多日的高温，让人感到暑热难耐，然而在沈阳森林动物园里的大熊猫、黑猩猩、河马、松鼠猴等动物们则在动物园营造的清凉环境下,这个价钱不一定啊。那就买个油耗低那就买个油耗低的车那就买个油耗低的车那就买个油耗低的车", false, new ExpandTextView.Callback() {
+            @Override
+            public void onExpand() {
+
+            }
+
+            @Override
+            public void onCollapse() {
+
+            }
+
+            @Override
+            public void onLoss() {
+
+            }
+
+            @Override
+            public void onExpandClick() {
+                tv_content.setChanged(true);
+            }
+
+            @Override
+            public void onCollapseClick() {
+                tv_content.setChanged(false);
+            }
+        });
     }
 
     @Override
@@ -261,6 +310,7 @@ public class PlayMusicFragment extends BaseFragment implements View.OnClickListe
                 ivBack.setEnabled(true);
             }
         });
+
     }
 
     private void prev() {

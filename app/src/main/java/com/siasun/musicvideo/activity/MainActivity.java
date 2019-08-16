@@ -201,9 +201,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener ,
     @Override
     public void onBackPressed() {
         if (mPlayFragment != null && isPlayFragmentShow) {
+            getPlayService().stop();
             hidePlayingFragment();
             return;
         }
+
         super.onBackPressed();
     }
     /**

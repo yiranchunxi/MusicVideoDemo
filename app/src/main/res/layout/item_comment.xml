@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="90dp">
+
+    <ImageView
+        android:id="@+id/iv_author"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:src="@mipmap/ic_launcher"
+        />
+    <TextView
+        android:id="@+id/tv_liked_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iv_author"
+        android:layout_alignTop="@id/iv_author"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="7dp"
+        android:textColor="@color/color333333"
+        android:textSize="14sp"
+        android:text="我爱沈阳"/>
+    <TextView
+        android:id="@+id/tv_comment_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="17dp"
+        android:textColor="@color/colorada095"
+        android:textSize="12sp"
+        android:text="2019-05-20"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/color666666"
+        android:layout_marginBottom="13dp"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@id/iv_author"
+        android:layout_marginLeft="7dp"
+        android:textSize="14sp"
+        android:text="深海恐惧症患者表示光是想象一下被巨浪吞进去的画面就浑身鸡皮疙瘩了"/>
+</RelativeLayout>
